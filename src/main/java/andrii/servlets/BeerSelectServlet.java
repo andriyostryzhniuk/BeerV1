@@ -2,6 +2,7 @@ package andrii.servlets;
 
 import andrii.model.BeerExpert;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,13 +21,17 @@ public class BeerSelectServlet extends HttpServlet {
         BeerExpert beerExpert = new BeerExpert();
         ArrayList<String> advices = beerExpert.getBrands(beerColor);
 
-        response.setContentType("text/html");
-        final PrintWriter out = response.getWriter();
-        out.println("Beer Selection Advice<br>");
+        request.setAttribute("styles", advices);
+        RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+        view.forward(request, response);
 
-        for (String item : advices) {
-            out.print("<br>try: " + item);
-        }
+//        response.setContentType("text/html");
+//        final PrintWriter out = response.getWriter();
+//        out.println("Beer Selection Advice<br>");
+//
+//        for (String item : advices) {
+//            out.print("<br>try: " + item);
+//        }
 
     }
 

@@ -22,7 +22,7 @@ public class BeerSelectServlet extends HttpServlet {
         ArrayList<String> advices = beerExpert.getBrands(beerColor);
 
         request.setAttribute("styles", advices);
-        RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("JSP/result.jsp");
         view.forward(request, response);
 
 //        response.setContentType("text/html");

@@ -1,11 +1,14 @@
 package andrii.servlets;
 
+import andrii.model.BeerExpert;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class BeerSelectServlet extends HttpServlet {
 
@@ -13,10 +16,18 @@ public class BeerSelectServlet extends HttpServlet {
                        HttpServletResponse response)
             throws IOException, ServletException {
 
+        String beerColor = request.getParameter("color");
+        BeerExpert beerExpert = new BeerExpert();
+        ArrayList<String> advices = beerExpert.getBrands(beerColor);
+
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        final PrintWriter out = response.getWriter();
         out.println("Beer Selection Advice<br>");
-        out.println("<br>Got beer color: " + request.getParameter("color"));
+
+        for (String item : advices) {
+            out.print("<br>try: " + item);
+        }
+
     }
 
 }

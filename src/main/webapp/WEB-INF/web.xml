@@ -11,4 +11,13 @@
         <servlet-name>Ch3 Beer</servlet-name>
         <url-pattern>/SelectBeer.do</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Ch4 Return</servlet-name>
+        <servlet-class>andrii.servlets.CodeReturnServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ch4 Return</servlet-name>
+        <url-pattern>/CodeReturnServlet.do</url-pattern>
+    </servlet-mapping>
 </web-app>

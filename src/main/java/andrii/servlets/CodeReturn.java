@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class CodeReturnServlet extends HttpServlet {
+public class CodeReturn extends HttpServlet {
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
@@ -17,7 +17,7 @@ public class CodeReturnServlet extends HttpServlet {
 
         response.setContentType("image/jpg");
 
-        InputStream inputStream = CodeReturnServlet.class.getResourceAsStream("/rango.jpg");
+        InputStream inputStream = CodeReturn.class.getResourceAsStream("/rango.jpg");
 
         OutputStream outputStream = response.getOutputStream();
 

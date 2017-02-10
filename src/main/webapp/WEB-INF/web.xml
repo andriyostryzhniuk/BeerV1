@@ -3,21 +3,37 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         version="2.4">
+
     <servlet>
         <servlet-name>Ch3 Beer</servlet-name>
-        <servlet-class>andrii.servlets.BeerSelectServlet</servlet-class>
+        <servlet-class>andrii.servlets.BeerSelect</servlet-class>
     </servlet>
         <servlet-mapping>
         <servlet-name>Ch3 Beer</servlet-name>
         <url-pattern>/SelectBeer.do</url-pattern>
     </servlet-mapping>
 
+
     <servlet>
         <servlet-name>Ch4 Return</servlet-name>
-        <servlet-class>andrii.servlets.CodeReturnServlet</servlet-class>
+        <servlet-class>andrii.servlets.CodeReturn</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Ch4 Return</servlet-name>
-        <url-pattern>/CodeReturnServlet.do</url-pattern>
+        <url-pattern>/CodeReturn.do</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>BeerParamTests</servlet-name>
+        <servlet-class>andrii.servlets.TestInitParams</servlet-class>
+        <init-param>
+            <param-name>adminEmail</param-name>
+            <param-value>ostryzhnykandriy@gmail.com</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BeerParamTests</servlet-name>
+        <url-pattern>/BeerParam.do</url-pattern>
     </servlet-mapping>
 </web-app>

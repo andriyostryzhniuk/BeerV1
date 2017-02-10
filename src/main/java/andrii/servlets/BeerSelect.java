@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class BeerSelectServlet extends HttpServlet {
+public class BeerSelect extends HttpServlet {
 
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
@@ -20,7 +20,7 @@ public class BeerSelectServlet extends HttpServlet {
         String beerColor = request.getParameter("color");
 
 //        if (beerColor.equals("brown")) {
-//            response.sendRedirect("CodeReturnServlet.do");
+//            response.sendRedirect("CodeReturn.do");
 //            return;
 //        }
 

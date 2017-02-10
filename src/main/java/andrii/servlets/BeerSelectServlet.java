@@ -18,6 +18,12 @@ public class BeerSelectServlet extends HttpServlet {
             throws IOException, ServletException {
 
         String beerColor = request.getParameter("color");
+
+//        if (beerColor.equals("brown")) {
+//            response.sendRedirect("CodeReturnServlet.do");
+//            return;
+//        }
+
         BeerExpert beerExpert = new BeerExpert();
         ArrayList<String> advices = beerExpert.getBrands(beerColor);
 

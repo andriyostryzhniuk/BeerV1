@@ -6,15 +6,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
 
 public class TestInitParams extends HttpServlet {
 
     public void doGet (HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-        String email = getServletConfig().getInitParameter("adminEmail");
+        HashMap<String, String> emails = new HashMap();
 
-        request.setAttribute("email", email);
+        Enumeration enumeration = getServletConfig().getInitParameterNames();
+        String paramName;
+        while (enumeration.hasMoreElements()) {
+            paramName = (String) enumeration.nextElement();
+            emails.put(paramName, getServletConfig().getInitParameter(paramName));
+        }
+
+        request.setAttribute("emails", emails);
         RequestDispatcher view = request.getRequestDispatcher("JSP/emailView.jsp");
         view.forward(request, response);
 

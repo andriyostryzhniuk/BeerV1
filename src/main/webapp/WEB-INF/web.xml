@@ -31,6 +31,10 @@
             <param-name>adminEmail</param-name>
             <param-value>ostryzhnykandriy@gmail.com</param-value>
         </init-param>
+        <init-param>
+            <param-name>mainEmail</param-name>
+            <param-value>blooper@wickedlysmart.com</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>BeerParamTests</servlet-name>

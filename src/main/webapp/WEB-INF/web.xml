@@ -25,8 +25,8 @@
 
 
     <servlet>
-        <servlet-name>BeerParamTests</servlet-name>
-        <servlet-class>andrii.servlets.TestInitParams</servlet-class>
+        <servlet-name>ServletConfigTests</servlet-name>
+        <servlet-class>andrii.servlets.TestServletConfig</servlet-class>
         <init-param>
             <param-name>adminEmail</param-name>
             <param-value>ostryzhnykandriy@gmail.com</param-value>
@@ -37,7 +37,28 @@
         </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>BeerParamTests</servlet-name>
-        <url-pattern>/BeerParam.do</url-pattern>
+        <servlet-name>ServletConfigTests</servlet-name>
+        <url-pattern>/ServletConfig.do</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ServletContextTests</servlet-name>
+        <servlet-class>andrii.servlets.TestServletContext</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextTests</servlet-name>
+        <url-pattern>/ServletContext.do</url-pattern>
+    </servlet-mapping>
+
+
+    <context-param>
+        <param-name>adminEmail</param-name>
+        <param-value>ostryzhnykandriy@gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>mainEmail</param-name>
+        <param-value>blooper@wickedlysmart.com</param-value>
+    </context-param>
+
 </web-app>

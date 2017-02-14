@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
 
-public class TestInitParams extends HttpServlet {
+public class TestServletConfig extends HttpServlet {
 
     public void doGet (HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
@@ -24,7 +24,7 @@ public class TestInitParams extends HttpServlet {
         }
 
         request.setAttribute("emails", emails);
-        RequestDispatcher view = request.getRequestDispatcher("JSP/emailView.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("JSP/testServletConfig.jsp");
         view.forward(request, response);
 
     }

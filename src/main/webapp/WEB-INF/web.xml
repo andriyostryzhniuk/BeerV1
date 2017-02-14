@@ -61,4 +61,25 @@
         <param-value>blooper@wickedlysmart.com</param-value>
     </context-param>
 
+
+    <!--MyServletContextListener-->
+    <listener>
+        <listener-class>andrii.servlets.MyServletContextListener</listener-class>
+    </listener>
+    
+    
+    <context-param>
+        <param-name>breed</param-name>
+        <param-value>Caucasian shepherd</param-value>
+    </context-param>
+
+
+    <servlet>
+        <servlet-name>TestListener</servlet-name>
+        <servlet-class>andrii.servlets.ListenerTester</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestListener</servlet-name>
+        <url-pattern>/TestListener.do</url-pattern>
+    </servlet-mapping>
 </web-app>

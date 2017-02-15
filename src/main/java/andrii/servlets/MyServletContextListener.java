@@ -5,10 +5,8 @@ import andrii.model.Dog;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import static andrii.model.DB_Handler.selectDogs;
 
-/**
- * Created by Andriy on 02/14/2017.
- */
 public class MyServletContextListener implements ServletContextListener {
 
     @Override
@@ -16,9 +14,10 @@ public class MyServletContextListener implements ServletContextListener {
 
         ServletContext servletContext = servletContextEvent.getServletContext();
 
-        String dogBreed = servletContext.getInitParameter("breed");
+//        String dogBreed = servletContext.getInitParameter("breed");
+//        Dog dog = new Dog(dogBreed);
 
-        Dog dog = new Dog(dogBreed);
+        Dog dog = selectDogs().get(0);
 
         servletContext.setAttribute("dog", dog);
     }

@@ -1,16 +1,18 @@
 package andrii.dataBase;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 
 public class DB_Connector {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(DB_Connector.class);
+
     private static DataSource dataSource;
     private static JdbcTemplate jdbcTemplate;
-    private static NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public DB_Connector() {
     }
@@ -20,6 +22,7 @@ public class DB_Connector {
         if (dataSource == null) {
             synchronized (DB_Connector.class) {
                 if (dataSource == null) {
+                    LOGGER.info("dataSource created");
                     dataSource = createDataSource("127.0.0.1",
                             "3306",
                             "dogs",
@@ -46,5 +49,12 @@ public class DB_Connector {
         } catch (PropertyVetoException e) {
             throw new RuntimeException();
         }
+    }
+
+    public static JdbcTemplate getJdbcTemplate() {
+        if (jdbcTemplate == null) {
+            jdbcTemplate = new JdbcTemplate(getDataSource());
+        }
+        return jdbcTemplate;
     }
 }

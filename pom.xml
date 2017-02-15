@@ -71,6 +71,8 @@
             <version>${log4j.version}</version>
             <scope>runtime</scope>
         </dependency>
+
+
         <dependency>
             <!-- This dependency is needed to enable AsyncLogger -->
             <groupId>com.lmax</groupId>
@@ -89,7 +91,6 @@
             <version>3.15-beta1</version>
         </dependency>
 
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -104,6 +105,12 @@
             <groupId>jdom</groupId>
             <artifactId>jdom</artifactId>
             <version>1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.8</version>
         </dependency>
 
     </dependencies>

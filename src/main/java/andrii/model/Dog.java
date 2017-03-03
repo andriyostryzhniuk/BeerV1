@@ -1,8 +1,15 @@
 package andrii.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
 import java.io.Serializable;
 
-public class Dog implements Serializable {
+public class Dog implements Serializable, HttpSessionBindingListener {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Dog.class);
 
     private Integer id;
     private String name;
@@ -48,5 +55,15 @@ public class Dog implements Serializable {
 
     public void setBreed(String breed) {
         this.breed = breed;
+    }
+
+    @Override
+    public void valueBound(HttpSessionBindingEvent httpSessionBindingEvent) {
+        LOGGER.info("dog's object bounded: " + httpSessionBindingEvent.getName());
+    }
+
+    @Override
+    public void valueUnbound(HttpSessionBindingEvent httpSessionBindingEvent) {
+        LOGGER.info("dog's object unbounded: " + httpSessionBindingEvent.getName());
     }
 }

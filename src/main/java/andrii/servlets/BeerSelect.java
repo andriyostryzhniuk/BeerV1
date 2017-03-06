@@ -38,6 +38,8 @@ public class BeerSelect extends HttpServlet {
         }
         request.setAttribute("sessionStatus", sessionStatus);
 
+        session.setMaxInactiveInterval(60);
+
         RequestDispatcher view = request.getRequestDispatcher("JSP/result.jsp");
         view.forward(request, response);
 

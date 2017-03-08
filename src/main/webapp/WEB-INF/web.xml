@@ -64,7 +64,7 @@
 
     <!--MyServletContextListener-->
     <listener>
-        <listener-class>andrii.servlets.MyServletContextListener</listener-class>
+        <listener-class>andrii.listeners.MyServletContextListener</listener-class>
     </listener>
 
     <context-param>
@@ -104,7 +104,11 @@
 
     <!--MyServletSessionListener-->
     <listener>
-        <listener-class>andrii.servlets.MyServletSessionListener</listener-class>
+        <listener-class>andrii.listeners.MyServletSessionListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>andrii.listeners.BeerAttributeListener</listener-class>
     </listener>
 
 

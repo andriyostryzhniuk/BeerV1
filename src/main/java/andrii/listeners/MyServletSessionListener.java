@@ -1,4 +1,4 @@
-package andrii.servlets;
+package andrii.listeners;
 
 import andrii.model.Dog;
 import org.slf4j.Logger;
@@ -13,16 +13,32 @@ public class MyServletSessionListener implements HttpSessionListener {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyServletSessionListener.class);
 
+    private static int activeSessions;
+
+    public static int getActiveSessions() {
+        return activeSessions;
+    }
+
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
-        LOGGER.info("session " + httpSessionEvent.getSession().getId() + " created");
+
+        activeSessions++;
 
         Dog dog = selectDogs().get(0);
         httpSessionEvent.getSession().setAttribute("dog", dog);
+
+        LOGGER.info("session " + httpSessionEvent.getSession().getId() + " created, " +
+                "active sessions: " + activeSessions);
+
+        httpSessionEvent.getSession().setMaxInactiveInterval(20);
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent httpSessionEvent) {
-        LOGGER.info("session " + httpSessionEvent.getSession().getId() + " destroyed");
+
+        activeSessions--;
+
+        LOGGER.info("session " + httpSessionEvent.getSession().getId() +
+                " destroyed, active sessions: " + activeSessions);
     }
 }

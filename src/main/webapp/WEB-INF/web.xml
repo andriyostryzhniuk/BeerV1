@@ -66,8 +66,7 @@
     <listener>
         <listener-class>andrii.servlets.MyServletContextListener</listener-class>
     </listener>
-    
-    
+
     <context-param>
         <param-name>breed</param-name>
         <param-value>Caucasian shepherd</param-value>
@@ -85,12 +84,28 @@
 
 
     <servlet>
-        <servlet-name>TestListener</servlet-name>
-        <servlet-class>andrii.servlets.ListenerTester</servlet-class>
+        <servlet-name>ContextTestListener</servlet-name>
+        <servlet-class>andrii.servlets.ContextListenerTester</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TestListener</servlet-name>
-        <url-pattern>/TestListener.do</url-pattern>
+        <servlet-name>ContextTestListener</servlet-name>
+        <url-pattern>/ContextTestListener.do</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>SessionTestListener</servlet-name>
+        <servlet-class>andrii.servlets.SessionListenerTester</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionTestListener</servlet-name>
+        <url-pattern>/SessionTestListener.do</url-pattern>
+    </servlet-mapping>
+
+    <!--MyServletSessionListener-->
+    <listener>
+        <listener-class>andrii.servlets.MyServletSessionListener</listener-class>
+    </listener>
+
 
 </web-app>

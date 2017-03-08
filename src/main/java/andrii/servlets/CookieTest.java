@@ -20,7 +20,7 @@ public class CookieTest extends HttpServlet {
 
         resp.addCookie(cookie);
 
-        RequestDispatcher view = req.getRequestDispatcher("JSP/cookieTest");
+        RequestDispatcher view = req.getRequestDispatcher("JSP/cookieTest.jsp");
         view.forward(req, resp);
     }
 }

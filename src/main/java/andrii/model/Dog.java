@@ -7,15 +7,15 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
 import java.io.Serializable;
 
-public class Dog implements Serializable, HttpSessionBindingListener {
+public class Dog extends Pet implements HttpSessionBindingListener {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Dog.class);
 
     private Integer id;
-    private String name;
     private String breed;
 
     public Dog() {
+        super();
     }
 
     public Dog(String breed) {
@@ -23,13 +23,13 @@ public class Dog implements Serializable, HttpSessionBindingListener {
     }
 
     public Dog(String name, String breed) {
-        this.name = name;
+        super(name);
         this.breed = breed;
     }
 
     public Dog(Integer id, String name, String breed) {
+        super(name);
         this.id = id;
-        this.name = name;
         this.breed = breed;
     }
 
@@ -39,14 +39,6 @@ public class Dog implements Serializable, HttpSessionBindingListener {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getBreed() {

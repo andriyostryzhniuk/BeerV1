@@ -11,8 +11,10 @@
         for (String item : styles) {
             out.print("<br>try: " + item);
         }
-
-        out.print("<br><br>Session status: " + request.getAttribute("sessionStatus"));
     %>
+            <%= "<br><br>Session status: " + request.getAttribute("sessionStatus") %>
+
+        <%--out.print("<br><br>Session status: " + request.getAttribute("sessionStatus"));--%>
+
 </body>
 </html>

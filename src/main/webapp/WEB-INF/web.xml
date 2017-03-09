@@ -111,5 +111,14 @@
         <listener-class>andrii.listeners.BeerAttributeListener</listener-class>
     </listener>
 
+    <servlet>
+        <servlet-name>firstJSPTest</servlet-name>
+        <servlet-class>andrii.servlets.JSPTester</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>firstJSPTest</servlet-name>
+        <url-pattern>/testJSP.do</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

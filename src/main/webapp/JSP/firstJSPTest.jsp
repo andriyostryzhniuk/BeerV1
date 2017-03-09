@@ -21,18 +21,16 @@
 
     <br><br>
     <form action="/testJSP.do">
-        id: <input type="text" name="id">
+        id: <input type="text" name="empID">
         name: <input type="text" name="name">
-        breed: <input type="text" name="breed">
         <input type="submit">
     </form>
     
-    <jsp:useBean id="inputDog" class="andrii.model.Dog" scope="request" >
-        <jsp:setProperty name="inputDog" property="*" />
+    <jsp:useBean id="person" class="andrii.model.Employee" scope="request" >
+        <jsp:setProperty name="person" property="*" />
     </jsp:useBean>
-    id: <jsp:getProperty name="inputDog" property="id"/>
-    <br>name: <jsp:getProperty name="inputDog" property="name"/>
-    <br>breed: <jsp:getProperty name="inputDog" property="breed"/>
+    name: <jsp:getProperty name="person" property="name"/>
+    <br>id: <jsp:getProperty name="person" property="empID"/>
 
 </body>
 </html>

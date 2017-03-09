@@ -1,6 +1,8 @@
 package andrii.servlets;
 
 import andrii.model.Dog;
+import andrii.model.Employee;
+import andrii.model.Person;
 import andrii.model.Pet;
 
 import javax.servlet.RequestDispatcher;
@@ -18,6 +20,11 @@ public class JSPTester extends HttpServlet {
         Dog dog = new Dog();
         dog.setName("Fingal");
         req.setAttribute("nullDog", dog);
+
+        Person person = new Employee();
+        person.setName("Andrii");
+        person.setDog(dog);
+        req.setAttribute("person", person);
 
         RequestDispatcher view = req.getRequestDispatcher("JSP/firstJSPTest.jsp");
         view.forward(req, resp);

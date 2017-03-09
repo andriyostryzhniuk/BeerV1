@@ -18,5 +18,21 @@
         <jsp:setProperty name="secondDog" property="name" value="Donna" />
     </jsp:useBean>
     <jsp:getProperty name="secondDog" property="name" />
+
+    <br><br>
+    <form action="/testJSP.do">
+        id: <input type="text" name="id">
+        name: <input type="text" name="name">
+        breed: <input type="text" name="breed">
+        <input type="submit">
+    </form>
+    
+    <jsp:useBean id="inputDog" class="andrii.model.Dog" scope="request" >
+        <jsp:setProperty name="inputDog" property="*" />
+    </jsp:useBean>
+    id: <jsp:getProperty name="inputDog" property="id"/>
+    <br>name: <jsp:getProperty name="inputDog" property="name"/>
+    <br>breed: <jsp:getProperty name="inputDog" property="breed"/>
+
 </body>
 </html>
